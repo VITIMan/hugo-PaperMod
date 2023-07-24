@@ -1,0 +1,11 @@
+{{ with .Get 0 }}
+    {{ $data := getJSON . }}
+
+    {{ range $data.items }}
+        {{ $post := . }}
+        <article>
+        <a href="{{ $post.link }}"><img src="{{ $post.enclosure.link}}" /></a>
+        <small>{{ $post.title }}</small>
+        </article>
+    {{ end }}
+{{end}}

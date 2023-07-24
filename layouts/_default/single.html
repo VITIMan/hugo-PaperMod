@@ -48,6 +48,15 @@
     {{- if (and site.Params.ShowShareButtons (ne .Params.disableShare true)) }}
     {{- partial "share_icons.html" . -}}
     {{- end }}
+    {{"<!-- begin comments //-->" | safeHTML}}
+    <script data-isso="{{ .Site.BaseURL }}isso/" 
+            data-isso-css-url="{{ .Site.BaseURL }}css/isso.css"
+            data-title="{{ .Title }}"
+            src="{{ .Site.BaseURL }}js/embed.min.js"></script>
+    <section id="isso-thread">
+
+    </section>
+    {{"<!-- end comments //-->" | safeHTML}}
   </footer>
 
   {{- if (.Param "comments") }}
